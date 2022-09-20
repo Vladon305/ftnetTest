@@ -1,0 +1,15 @@
+.container {
+  @apply mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl;
+
+  header {
+    @apply w-full;
+
+    nav {
+      @apply flex justify-between items-center;
+    }
+  }
+
+  main {
+    @apply w-full;
+  }
+}
