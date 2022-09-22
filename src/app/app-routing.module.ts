@@ -14,7 +14,7 @@ const routes: Routes = [
     component: StorePageComponent,
   },
   {
-    path: 'order-registration',
+    path: 'order-registration/:step',
     component: OrderRegistrationPageComponent,
   },
   {

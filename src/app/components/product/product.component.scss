@@ -1,0 +1,20 @@
+.product {
+  @apply flex justify-between items-center gap-3 w-full p-3 mb-2 border border-black rounded-md;
+  .title {
+    /* @apply; */
+  }
+  .price {
+  }
+
+  .attr {
+    .color {
+    }
+
+    .format {
+    }
+  }
+
+  .add-to-basket {
+    @apply cursor-pointer;
+  }
+}

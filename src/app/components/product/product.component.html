@@ -1,0 +1,24 @@
+<div class="product">
+  <div *ngIf="isInBasket">{{ product.quantity }} шт.</div>
+  <div class="title">{{ product.name }}</div>
+  <div class="price">{{ product.price }}</div>
+  <div class="attr">
+    <div class="color">{{ product.attr.color }}</div>
+    <div class="format">{{ product.attr.format }}</div>
+  </div>
+  <button
+    class="remove-from-basket"
+    *ngIf="isInBasket"
+    (click)="removeFromBasket(product.id)"
+  >
+    Удалить из корзины
+  </button>
+  <button
+    class="add-to-basket"
+    (click)="addToBasket()"
+    *ngIf="!isInBasket"
+    [disabled]="basketService.isOpenBasket"
+  >
+    Добавить в корзину
+  </button>
+</div>

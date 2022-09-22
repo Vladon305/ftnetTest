@@ -1,1 +1,22 @@
-<p>basket works!</p>
+<div class="basket">
+  <div class="title">Корзина</div>
+  <button
+    class="delete-all"
+    (click)="clearBasket()"
+    *ngIf="basketService.basketProducts.length > 0"
+  >
+    Очистить корзину
+  </button>
+  <app-product
+    *ngFor="let product of basketService.basketProducts"
+    [product]="product"
+    [isInBasket]="true"
+  ></app-product>
+  <button
+    class="offer"
+    routerLink="/order-registration/1"
+    *ngIf="basketService.basketProducts.length > 0"
+  >
+    Оформить заказ
+  </button>
+</div>

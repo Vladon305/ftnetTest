@@ -1,1 +1,36 @@
-<p>order-registration-page works!</p>
+<div class="order-registration">
+  <div>Оформление заказа</div>
+  <main>
+    <div class="step-1" *ngIf="params === '1'">
+      <!-- <input type="text" name="name" [(ngModel)]="registrationService.name" /> -->
+      <input type="number" name="phone" />
+      <input type="checkbox" name="confirmation" />
+    </div>
+    <div class="step-2" *ngIf="params === '2'">
+      <app-product
+        *ngFor="let product of basketService.basketProducts"
+        [product]="product"
+      ></app-product>
+      <button class="confirmation">Подтвердить</button>
+    </div>
+    <div class="step-3" *ngIf="params === '3'">
+      <input type="text" name="SNILS" />
+      <input type="number" name="photo" />
+    </div>
+    <div class="step-4" *ngIf="params === '4'">
+      <select name="delivery">
+        <option value="pickup">Самовывоз</option>
+        <option value="delivery by mail">Доставка по почте</option>
+      </select>
+      <!-- <option value="Moskow">Москва</option>
+      <option value="Voronej">Воронеж</option> -->
+      <div *ngIf="registrationService.delivery === 'delivery by mail'">
+        <input type="text" name="name" />
+        <input type="number" name="phone" />
+        <input type="text" name="index" />
+        <input type="number" name="address" />
+      </div>
+    </div>
+    <div class="step-5" *ngIf="params === '5'"></div>
+  </main>
+</div>

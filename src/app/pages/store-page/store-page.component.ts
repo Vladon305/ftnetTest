@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/services/products.service';
+import { BasketService } from 'src/app/services/basket.service';
+import { IProduct, ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-store-page',
@@ -7,7 +8,18 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./store-page.component.scss'],
 })
 export class StorePageComponent implements OnInit {
-  constructor(private productService: ProductsService) {}
+  products: IProduct[];
 
-  ngOnInit(): void {}
+  constructor(
+    private productService: ProductsService,
+    public basketService: BasketService
+  ) {}
+
+  ngOnInit(): void {
+    this.products = this.productService.products;
+  }
+
+  toggleBasket() {
+    this.basketService.isOpenBasket = !this.basketService.isOpenBasket;
+  }
 }

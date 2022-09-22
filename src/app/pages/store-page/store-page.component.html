@@ -1,1 +1,14 @@
-<p>store-page works!</p>
+<div class="store">
+  <header>
+    <nav (click)="toggleBasket()">Корзина</nav>
+  </header>
+  <app-modal *ngIf="basketService.isOpenBasket" [styles]="{}">
+    <app-basket></app-basket>
+  </app-modal>
+  <main>
+    <app-product
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-product>
+  </main>
+</div>
